@@ -1,4 +1,4 @@
-{
+
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Business Automation Knowledge Base",
     "description": "The exact schema used to give LLMs deep context on a local business, preventing hallucinations and ensuring brand alignment.",
@@ -16,7 +16,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "example": "The Mindful Kids"
+                    "example": "[YOUR_BUSINESS_NAME]"
                 },
                 "tagline": {
                     "type": "string"
@@ -42,10 +42,10 @@
                         "type": "string"
                     },
                     "example": [
-                        "Warm",
-                        "Direct",
                         "Professional",
-                        "0-Pressure"
+                        "Direct",
+                        "Authoritative",
+                        "Friendly"
                     ]
                 },
                 "words_to_avoid": {
@@ -80,9 +80,9 @@
                         "type": "string"
                     },
                     "example": [
-                        "After-school meltdowns",
-                        "Screen time battles",
-                        "High sensitivity"
+                        "[Customer Pain Point 1]",
+                        "[Customer Pain Point 2]",
+                        "[Customer Pain Point 3]"
                     ]
                 },
                 "desired_outcomes": {
