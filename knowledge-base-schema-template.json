@@ -1,0 +1,146 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Business Automation Knowledge Base",
+    "description": "The exact schema used to give LLMs deep context on a local business, preventing hallucinations and ensuring brand alignment.",
+    "type": "object",
+    "required": [
+        "business_identity",
+        "brand_voice",
+        "target_audience",
+        "core_offerings",
+        "operational_rules"
+    ],
+    "properties": {
+        "business_identity": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "The Mindful Kids"
+                },
+                "tagline": {
+                    "type": "string"
+                },
+                "mission_statement": {
+                    "type": "string"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Physical operating locations"
+                }
+            }
+        },
+        "brand_voice": {
+            "type": "object",
+            "properties": {
+                "tone": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Warm",
+                        "Direct",
+                        "Professional",
+                        "0-Pressure"
+                    ]
+                },
+                "words_to_avoid": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of words the LLM should actively avoid using."
+                },
+                "formatting_rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Use bullet points for lists",
+                        "Keep sentences under 15 words"
+                    ]
+                }
+            }
+        },
+        "target_audience": {
+            "type": "object",
+            "properties": {
+                "primary_avatar": {
+                    "type": "string",
+                    "description": "Who are we talking to?"
+                },
+                "core_pain_points": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "After-school meltdowns",
+                        "Screen time battles",
+                        "High sensitivity"
+                    ]
+                },
+                "desired_outcomes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "core_offerings": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "service_name": {
+                        "type": "string"
+                    },
+                    "age_range": {
+                        "type": "string"
+                    },
+                    "duration": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "default": "EUR"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "operational_rules": {
+            "type": "object",
+            "properties": {
+                "trial_policy": {
+                    "type": "string"
+                },
+                "cancellation_policy": {
+                    "type": "string"
+                },
+                "communication_channels": {
+                    "type": "object",
+                    "properties": {
+                        "primary_email": {
+                            "type": "string"
+                        },
+                        "support_url": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
