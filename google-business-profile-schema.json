@@ -1,0 +1,137 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://[YOUR-DOMAIN].com/#main-location",
+      "name": "[YOUR_BUSINESS_NAME]",
+      "description": "[YOUR_BUSINESS_DESCRIPTION — 1-2 sentences explaining what you do and who you serve]",
+      "url": "https://[YOUR-DOMAIN].com",
+      "telephone": "+31-[YOUR-PHONE]",
+      "email": "[YOUR-EMAIL]",
+      "image": "https://[YOUR-DOMAIN].com/images/logo.png",
+      "logo": "https://[YOUR-DOMAIN].com/images/logo.png",
+      "priceRange": "[PRICE_RANGE — e.g., €€, $-$$]",
+      "currenciesAccepted": "[CURRENCY — e.g., EUR, USD]",
+      "paymentAccepted": "[PAYMENT_METHODS — e.g., Cash, Credit Card, iDEAL]",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[STREET_ADDRESS]",
+        "addressLocality": "[CITY]",
+        "addressRegion": "[PROVINCE_OR_STATE]",
+        "postalCode": "[POSTAL_CODE]",
+        "addressCountry": "[COUNTRY_CODE — e.g., NL, US, GB]"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "[LATITUDE — e.g., 52.3676]",
+        "longitude": "[LONGITUDE — e.g., 4.9041]"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "[OPEN_TIME — e.g., 09:00]",
+          "closes": "[CLOSE_TIME — e.g., 17:00]"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "[OPEN_TIME]",
+          "closes": "[CLOSE_TIME]"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/[YOUR-LINKEDIN]",
+        "https://www.instagram.com/[YOUR-INSTAGRAM]",
+        "https://www.facebook.com/[YOUR-FACEBOOK]",
+        "https://[YOUR-DOMAIN].substack.com"
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "[CITY_1]"
+        },
+        {
+          "@type": "City",
+          "name": "[CITY_2]"
+        },
+        {
+          "@type": "City",
+          "name": "[CITY_3]"
+        },
+        {
+          "@type": "City",
+          "name": "[CITY_4]"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "[YOUR_BUSINESS_NAME] Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "[SERVICE_1_NAME]",
+              "description": "[SERVICE_1_DESCRIPTION]",
+              "provider": {
+                "@type": "Organization",
+                "name": "[YOUR_BUSINESS_NAME]"
+              }
+            },
+            "price": "[PRICE — e.g., 15.00]",
+            "priceCurrency": "[CURRENCY]",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "[SERVICE_2_NAME]",
+              "description": "[SERVICE_2_DESCRIPTION]",
+              "provider": {
+                "@type": "Organization",
+                "name": "[YOUR_BUSINESS_NAME]"
+              }
+            },
+            "price": "[PRICE]",
+            "priceCurrency": "[CURRENCY]",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "[RATING — e.g., 4.8]",
+        "reviewCount": "[REVIEW_COUNT — e.g., 24]",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://[YOUR-DOMAIN].com/#location-2",
+      "name": "[YOUR_BUSINESS_NAME] — [LOCATION_2_NAME]",
+      "description": "[LOCATION_2_DESCRIPTION]",
+      "url": "https://[YOUR-DOMAIN].com/locations/[LOCATION-2-SLUG]",
+      "telephone": "+31-[PHONE]",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[STREET_ADDRESS]",
+        "addressLocality": "[CITY]",
+        "addressRegion": "[PROVINCE_OR_STATE]",
+        "postalCode": "[POSTAL_CODE]",
+        "addressCountry": "[COUNTRY_CODE]"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "[LATITUDE]",
+        "longitude": "[LONGITUDE]"
+      },
+      "parentOrganization": {
+        "@id": "https://[YOUR-DOMAIN].com/#main-location"
+      }
+    }
+  ]
+}
