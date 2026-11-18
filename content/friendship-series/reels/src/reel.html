@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Friendship reel</title>
+<style>
+@font-face{font-family:Fredoka;font-weight:600;src:url(node_modules/@fontsource/fredoka/files/fredoka-latin-600-normal.woff2)}
+@font-face{font-family:Fredoka;font-weight:500;src:url(node_modules/@fontsource/fredoka/files/fredoka-latin-500-normal.woff2)}
+@font-face{font-family:Nunito;font-weight:700;src:url(node_modules/@fontsource/nunito/files/nunito-latin-700-normal.woff2)}
+@font-face{font-family:Nunito;font-weight:800;src:url(node_modules/@fontsource/nunito/files/nunito-latin-800-normal.woff2)}
+html,body{margin:0;background:#FBF6EE}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#FBF6EE;font-family:Nunito,sans-serif;color:#2F4A3A}
+.scene{position:absolute;inset:0}
+.abs{position:absolute}
+.blob{position:absolute;border-radius:50%;transform:translate(-50%,-50%);filter:blur(2px)}
+.brand{position:absolute;top:120px;left:50%;transform:translateX(-50%);font:600 34px Fredoka,sans-serif;letter-spacing:.5px;color:#5E7566;display:flex;align-items:center;gap:12px}
+.brand .dot{width:18px;height:18px;border-radius:50%;background:#8FB89A}
+.headline{position:absolute;left:50%;font-family:Fredoka,sans-serif;font-weight:600;line-height:1.12;letter-spacing:-.5px}
+.headline b{color:#5F9470;font-weight:600;white-space:nowrap}
+.sub{position:absolute;left:50%;transform:translateX(-50%);font:700 40px Nunito,sans-serif;color:#5E7566;text-align:center;white-space:nowrap}
+.bubble{position:absolute;border-radius:48px;padding:34px 44px;font-family:Fredoka,sans-serif;font-weight:500;line-height:1.15;text-align:center;box-shadow:0 10px 0 rgba(47,74,58,.08);box-sizing:border-box}
+.bubble b{color:#5F9470;font-weight:600}
+.bubble i{position:absolute;width:0;height:0;border:26px solid transparent;border-bottom:0;border-top-width:30px}
+.chip{position:absolute;display:flex;align-items:center;gap:18px;padding:22px 36px;background:#FFFDF8;border-radius:999px;font-family:Fredoka,sans-serif;font-weight:500;white-space:nowrap;box-shadow:0 8px 0 rgba(47,74,58,.08)}
+.chip span{width:30px;height:30px;border-radius:50%;display:inline-block}
+.label{position:absolute;font:700 40px Nunito,sans-serif;color:#2F4A3A;background:#FFFDF8;padding:12px 26px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 0 rgba(47,74,58,.07)}
+.card{position:absolute;background:#FFFDF8;border-radius:40px;box-shadow:0 12px 0 rgba(47,74,58,.08)}
+.prog{position:absolute;left:90px;right:90px;top:80px;height:8px;border-radius:8px;background:rgba(47,74,58,.10)}
+.prog div{height:100%;border-radius:8px;background:#8FB89A}
+.credit{position:absolute;left:50%;transform:translateX(-50%);font:700 30px Nunito,sans-serif;color:#5E7566;white-space:nowrap}
+</style></head>
+<body><div id="stage"></div>
+<script src="engine.js"></script>
+<script src="reels.js"></script>
+<script>
+const q = new URLSearchParams(location.search);
+const reel = window.REELS[q.get('reel') || '01'], lang = q.get('lang') || 'en';
+window.DURATION = reel.duration;
+window.renderAt = t => FS.renderReel(reel, lang, t);
+renderAt(Number(q.get('t') || 0));
+</script></body></html>
