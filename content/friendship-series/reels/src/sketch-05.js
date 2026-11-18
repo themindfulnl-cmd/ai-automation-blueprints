@@ -112,7 +112,7 @@ function panel(i, y, t, at, L) {
     () => fig(cx - 120, y + 240, .55, { armR: 70, look: 5, smile: 1 }).svg + `<circle cx="${cx - 52}" cy="${y + 150}" r="16" fill="${TERRA}" stroke="${INK}" stroke-width="3"/>` +
       fig(cx + 140, y + 240, .55, { armL: 20 + Math.sin(t * 6) * 10, look: -5, smile: .9, bun: true }).svg,
   ][i]();
-  return `<g opacity="${clamp(k * 2)}">${`<path d="${box}" fill="${PAPER}"/>`}${wash(box, [SAGE, BLUE, OCHRE][i], .18)}${ln(box, k, 4)}${inner}${say(cx + 10, y + 62, 300, 84, L.p[i], P(t, at + .4, at + .9), 'l', 46)}</g>`;
+  return `<g opacity="${clamp(k * 2)}">${`<path d="${box}" fill="${PAPER}"/>`}${wash(box, [SAGE, BLUE, OCHRE][i], .18)}${ln(box, k, 4)}${inner}${say(cx + 10, y + 62, 360, 96, L.p[i], P(t, at + .4, at + .9), 'l', 56)}</g>`;
 }
 
 const SCENES = [
@@ -139,9 +139,9 @@ const SCENES = [
     html: text(L.t5, 300, 112, t, 20.6) }) },
   { start: 24.2, end: 28.6, draw: (t, L) => ({
     svg: hills(t, 1) + players(t, 1, 650) +
-      fig(240, 1520, 2.0, { armR: 20, look: 8, smile: .7, hair: true }).svg + fig(390, 1520, 1.1, { armL: 28, down: .6, look: 7, smile: .2, tilt: -4 }).svg +
-      blot(390, 1520, 90, 14, SHADE, .3),
-    html: `<div class="tiph" style="opacity:${eo(P(t, 24.4, 24.9))}">${L.tipH}</div>` + text(L.t6, 270, 76, t, 24.6, 'adult') + text(L.tip, 640, 64, t, 26.0, 'small') }) },
+      fig(260, 1560, 1.6, { armR: 20, look: 8, smile: .7, hair: true }).svg + fig(390, 1560, .95, { armL: 28, down: .6, look: 7, smile: .2, tilt: -4 }).svg +
+      blot(390, 1560, 90, 14, SHADE, .3),
+    html: `<div class="tipcard" style="opacity:${eo(P(t, 24.3, 24.8))}"></div><div class="tiph" style="opacity:${eo(P(t, 24.4, 24.9))}">${L.tipH}</div>` + text(L.t6, 300, 78, t, 24.6, 'adult') + `<div class="tipline" style="opacity:${eo(P(t, 25.8, 26.2))}"></div>` + text(L.tip, 690, 84, t, 26.0) }) },
   { start: 28.6, end: 30, last: true, draw: (t, L) => ({
     svg: crayon('M540 1140 C440 1060 430 960 495 960 C525 960 540 990 540 1005 C540 990 555 960 585 960 C650 960 640 1060 540 1140', TERRA, P(t, 28.7, 29.4), 14) +
       fig(470, 1400, .9, { armR: 42, look: 4, smile: 1 }).svg + fig(610, 1400, .9, { armL: 42, look: -4, smile: 1, bun: true }).svg +
@@ -149,8 +149,13 @@ const SCENES = [
     html: text(L.end, 330, 118, t, 28.65) + text([L.brand], 1480, 72, t, 29.1) }) },
 ];
 
-function render(t, lang) {
-  const L = TXT[lang], seed = 1 + (Math.floor(t * 8) % 4);
+// Reading-time warp: after each scene's text is written (c), hold longer (extra s) so every slide can be read.
+const HOLDS = [[2.0, 4.2, 1.4], [6.6, 9.6, 2.3], [13.0, 15.2, 2.4], [19.2, 20.4, 2.2], [23.9, 24.2, 3.0], [27.7, 28.6, 5.2], [29.5, 30, 2.6]];
+const KNOTS = (() => { const k = [[0, 0]]; let off = 0; for (const [c, e, x] of HOLDS) { k.push([c + off, c]); off += x; k.push([e + off, e]); } return k; })();
+const DUR = KNOTS[KNOTS.length - 1][0];
+const warp = T => { for (let i = 1; i < KNOTS.length; i++) { const [n0, o0] = KNOTS[i - 1], [n1, o1] = KNOTS[i]; if (T <= n1) return o0 + (T - n0) * (o1 - o0) / (n1 - n0); } return 30; };
+function render(T, lang) {
+  const t = warp(T), L = TXT[lang], seed = 1 + (Math.floor(T * 8) % 4);
   let svg = '', html = '';
   for (const s of SCENES) {
     if (t < s.start - .01 || t > s.end + .7) continue;
@@ -171,5 +176,5 @@ function render(t, lang) {
     <rect width="1080" height="1920" filter="url(#paper)"/><rect width="1080" height="1920" fill="url(#vig)"/></svg>${html}`;
 }
 
-window.SK = { duration: 30, render };
+window.SK = { duration: DUR, render };
 })();

@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Hook overlay</title>
+<style>
+@font-face{font-family:Caveat;font-weight:700;src:url(node_modules/@fontsource/caveat/files/caveat-latin-700-normal.woff2)}
+@font-face{font-family:PatrickHand;font-weight:400;src:url(node_modules/@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff2)}
+html,body{margin:0;background:transparent}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+.card{position:absolute;left:50%;top:260px;transform:translateX(-50%) rotate(-1.5deg);width:900px;box-sizing:border-box;padding:46px 56px 54px;background:#F4ECDF;border:5px solid #2B2622;border-radius:44px;box-shadow:0 14px 0 rgba(43,38,34,.25);text-align:center}
+.tag{display:inline-block;font:400 40px PatrickHand,cursive;color:#F4ECDF;background:#C8775B;padding:4px 28px 8px;border-radius:999px;margin-bottom:18px;letter-spacing:.5px}
+.hook{font:700 100px/1.02 Caveat,cursive;color:#2B2622}
+.hook b{color:#C8775B;font-weight:700}
+</style></head>
+<body><div id="stage"><div class="card"><div class="tag" id="tag"></div><div class="hook" id="hook"></div></div></div>
+<script>
+const q = new URLSearchParams(location.search);
+document.getElementById('tag').textContent = q.get('tag') || 'Friendship, through a child’s eyes';
+document.getElementById('hook').innerHTML = (q.get('hook') || '').replace(/\*(.+?)\*/g, '<b>$1</b>').replace(/\|/g, '<br>');
+</script></body></html>
