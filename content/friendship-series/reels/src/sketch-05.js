@@ -83,6 +83,7 @@ const TXT = {
     t4: ['“Then I tell you', 'one thing about me…', 'and ask one about you.”'], b1: 'I love drawing!', b2: 'What do you like?', b3: 'Dinosaurs!',
     t5: ['“Or I just join in.”'], p: ['Can I help?', 'Cool shoes!', 'Want to play?'],
     t6: ['When your child hangs back,', 'they’re not being rude.', 'They’re finding', 'their first word.'],
+    tipH: 'Parent tip', tip: ['Play it at home first:', 'look up, smile,', 'say hi and your name.'],
     end: ['Friendship,', 'through a child’s eyes'], brand: 'The Mindful NL' },
 };
 TXT.nl = TXT.en;
@@ -133,19 +134,19 @@ const SCENES = [
       fig(330, 1430, 1.4, { k: P(t, 15.3, 16.1), armR: 25, look: 6, smile: 1 }).svg + fig(760, 1430, 1.4, { k: P(t, 15.5, 16.3), look: -6, smile: lerp(.4, 1, P(t, 18.6, 19.2)), bun: true }).svg +
       say(390, 870, 420, 110, L.b1, P(t, 16.4, 17)) + say(420, 1010, 460, 110, L.b2, P(t, 17.4, 18)) + say(760, 860, 340, 110, L.b3, P(t, 18.6, 19.2), 'r'),
     html: text(L.t4, 230, 96, t, 15.4) }) },
-  { start: 20.4, end: 25, draw: (t, L) => ({
+  { start: 20.4, end: 24.2, draw: (t, L) => ({
     svg: panel(0, 560, t, 21.0, L) + panel(1, 860, t, 22.0, L) + panel(2, 1160, t, 23.0, L),
     html: text(L.t5, 300, 112, t, 20.6) }) },
-  { start: 25, end: 28.4, draw: (t, L) => ({
+  { start: 24.2, end: 28.6, draw: (t, L) => ({
     svg: hills(t, 1) + players(t, 1, 650) +
       fig(240, 1520, 2.0, { armR: 20, look: 8, smile: .7, hair: true }).svg + fig(390, 1520, 1.1, { armL: 28, down: .6, look: 7, smile: .2, tilt: -4 }).svg +
       blot(390, 1520, 90, 14, SHADE, .3),
-    html: `<div style="position:absolute;inset:0">${text(L.t6, 220, 92, t, 25.2, 'adult')}</div>` }) },
-  { start: 28.4, end: 30, last: true, draw: (t, L) => ({
-    svg: crayon('M540 1140 C440 1060 430 960 495 960 C525 960 540 990 540 1005 C540 990 555 960 585 960 C650 960 640 1060 540 1140', TERRA, P(t, 28.6, 29.4), 14) +
+    html: `<div class="tiph" style="opacity:${eo(P(t, 24.4, 24.9))}">${L.tipH}</div>` + text(L.t6, 270, 76, t, 24.6, 'adult') + text(L.tip, 640, 64, t, 26.0, 'small') }) },
+  { start: 28.6, end: 30, last: true, draw: (t, L) => ({
+    svg: crayon('M540 1140 C440 1060 430 960 495 960 C525 960 540 990 540 1005 C540 990 555 960 585 960 C650 960 640 1060 540 1140', TERRA, P(t, 28.7, 29.4), 14) +
       fig(470, 1400, .9, { armR: 42, look: 4, smile: 1 }).svg + fig(610, 1400, .9, { armL: 42, look: -4, smile: 1, bun: true }).svg +
       ln('M260 1405 Q540 1385 820 1405', P(t, 28.4, 29), 4),
-    html: text(L.end, 330, 118, t, 28.5) + text([L.brand], 1480, 72, t, 29.0) }) },
+    html: text(L.end, 330, 118, t, 28.65) + text([L.brand], 1480, 72, t, 29.1) }) },
 ];
 
 function render(t, lang) {
