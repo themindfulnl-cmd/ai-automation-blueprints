@@ -6,9 +6,10 @@ const path = require('path');
 
 (async () => {
   const [reel = '01', lang = 'en', flag, list] = process.argv.slice(2);
+  const pageFile = reel === 'launch' ? 'sketch.html' : 'reel.html';
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
-  await page.goto('file://' + path.join(__dirname, `reel.html?reel=${reel}&lang=${lang}`));
+  await page.goto('file://' + path.join(__dirname, `${pageFile}?reel=${reel}&lang=${lang}`));
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
   const stage = await page.$('#stage');
