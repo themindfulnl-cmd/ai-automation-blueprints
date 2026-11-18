@@ -1,0 +1,261 @@
+{
+ "v": 1,
+ "id": "home",
+ "kind": "static",
+ "addresses": "plain",
+ "permissions": [
+  "forms.submit"
+ ],
+ "forms": {
+  "contact": {
+   "fields": {
+    "name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "inquiry_type": {
+     "type": "text",
+     "required": true
+    },
+    "subject": {
+     "type": "text",
+     "required": true
+    },
+    "message": {
+     "type": "long_text",
+     "required": true,
+     "max": 5000
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "trial-class": {
+   "fields": {
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "phone": {
+     "type": "phone",
+     "required": true
+    },
+    "child_name": {
+     "type": "text",
+     "required": true
+    },
+    "child_age": {
+     "type": "text",
+     "required": true
+    },
+    "location": {
+     "type": "text",
+     "required": true
+    },
+    "referral": {
+     "type": "text"
+    },
+    "notes": {
+     "type": "long_text"
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "free-guide": {
+   "fields": {
+    "name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "play-guide": {
+   "fields": {
+    "name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "recommend-school": {
+   "fields": {
+    "school_name": {
+     "type": "text",
+     "required": true
+    },
+    "school_type": {
+     "type": "text"
+    },
+    "city": {
+     "type": "text"
+    },
+    "school_email": {
+     "type": "email"
+    },
+    "may_share_name": {
+     "type": "text"
+    },
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "school-presentation": {
+   "fields": {
+    "name": {
+     "type": "text",
+     "required": true
+    },
+    "school_name": {
+     "type": "text"
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "ois-petition": {
+   "fields": {
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "child_age": {
+     "type": "text"
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "whatsapp": {
+     "type": "phone"
+    },
+    "timing": {
+     "type": "text",
+     "required": true
+    },
+    "would_enrol": {
+     "type": "text",
+     "required": true
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "mindful-monday": {
+   "fields": {
+    "class_name": {
+     "type": "text"
+    },
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "phone": {
+     "type": "phone",
+     "required": true
+    },
+    "child_name": {
+     "type": "text",
+     "required": true
+    },
+    "child_age": {
+     "type": "text",
+     "required": true
+    },
+    "notes": {
+     "type": "long_text"
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "class-register": {
+   "fields": {
+    "class_name": {
+     "type": "text",
+     "required": true
+    },
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "phone": {
+     "type": "phone"
+    },
+    "child_name": {
+     "type": "text"
+    },
+    "child_age": {
+     "type": "text"
+    },
+    "notes": {
+     "type": "long_text"
+    }
+   },
+   "thanks": "/thanks"
+  },
+  "online-register": {
+   "fields": {
+    "parent_name": {
+     "type": "text",
+     "required": true
+    },
+    "email": {
+     "type": "email",
+     "required": true
+    },
+    "phone": {
+     "type": "phone"
+    },
+    "child_name": {
+     "type": "text",
+     "required": true
+    },
+    "child_age": {
+     "type": "text",
+     "required": true
+    },
+    "class_name": {
+     "type": "text",
+     "required": true
+    },
+    "notes": {
+     "type": "long_text"
+    }
+   },
+   "thanks": "/thanks"
+  }
+ }
+}

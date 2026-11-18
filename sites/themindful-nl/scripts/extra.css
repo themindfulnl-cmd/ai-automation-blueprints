@@ -1,0 +1,21 @@
+/* ---- added for the Company of One rebuild ---- */
+.tm-acc-body{padding:0 1.5rem 1.25rem;font-family:var(--font-body,inherit);color:#4b5563;font-size:.95rem;line-height:1.65}
+.tm-acc-body p+p{margin-top:.6rem}
+[data-acc] svg{transition:transform .2s}
+[data-acc][aria-expanded="true"] svg{transform:rotate(180deg)}
+.tm-dd-open{visibility:visible!important;opacity:1!important}
+.tm-form{display:grid;gap:.85rem;text-align:left}
+.tm-form-title{font-weight:700;font-size:1.15rem;color:#2F4A2A;margin-bottom:.25rem}
+.tm-field{display:grid;gap:.35rem;font-size:.9rem;font-weight:600;color:#374151}
+.tm-field input,.tm-field select,.tm-field textarea{width:100%;min-height:2.75rem;padding:.6rem .85rem;border:1px solid #e5e7eb;border-radius:.75rem;background:#fff;font:inherit;font-weight:400;color:#374151}
+.tm-field input:focus,.tm-field select:focus,.tm-field textarea:focus{outline:none;box-shadow:0 0 0 3px rgba(74,103,65,.3)}
+.tm-secure{font-size:.8rem;color:#6b7280}
+.tm-submit{min-height:2.9rem;padding:.75rem 1.25rem;border-radius:.75rem;background:#4A6741;color:#fff;font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.08);cursor:pointer}
+.tm-submit:hover{background:#3d5636}
+.tm-reg{margin-top:1rem;padding:1.1rem;border:1px solid rgba(74,103,65,.2);border-radius:1rem;background:#fff}
+.tm-turnstile{min-height:65px}
+.tm-mobile-menu{position:fixed;inset:72px 0 0 0;z-index:60;background:#fff;overflow-y:auto;padding:1rem 1.25rem 2rem;border-top:1px solid #f3f4f6}
+.tm-mobile-menu h4{margin:1rem 0 .35rem;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#9ca3af}
+.tm-mobile-menu a{display:block;padding:.6rem 0;font-size:1rem;color:#374151;border-bottom:1px solid #f9fafb}
+.tm-mobile-menu a.tm-cta{margin-top:1.25rem;text-align:center;border-radius:.75rem;background:#4A6741;color:#fff;padding:.8rem}
+.tm-hidden{display:none!important}
