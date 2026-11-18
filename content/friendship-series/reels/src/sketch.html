@@ -11,9 +11,11 @@ html,body{margin:0;background:#F4ECDF}
 .small{font-family:PatrickHand,cursive;color:#5A5048}
 </style></head>
 <body><div id="stage"></div>
-<script src="sketch.js"></script>
 <script>
 const q = new URLSearchParams(location.search);
+document.write('<script src="sketch' + (q.get('reel') && q.get('reel') !== 'launch' ? '-' + q.get('reel') : '') + '.js"><\/script>');
+</script>
+<script>
 window.DURATION = SK.duration;
 window.renderAt = t => SK.render(t, q.get('lang') || 'en');
 renderAt(Number(q.get('t') || 0));
